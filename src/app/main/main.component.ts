@@ -96,7 +96,7 @@ export class MainComponent implements OnInit {
         this.highlightActiveRow(this.activeWordIndex+1);
         this.currentWord = '';
         if(this.green.length == this.wordLength) {
-          this.toastr.success(`Solved in ${this.attempts} attempts`);
+          //this.toastr.success(`Solved in ${this.attempts} attempts`);
           this.showModal = true;
           this.modalData = {type: "success", title: "Solved!!", text: `Solved in ${this.attempts} attempts`};
         }
@@ -116,6 +116,7 @@ export class MainComponent implements OnInit {
   }
 
   initChallenge() {
+    this.showModal = false;
     this.resetKeyboard = true;
     this.attempts = 0;
     this.word1 = [];

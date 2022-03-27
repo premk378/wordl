@@ -7,4 +7,4 @@
     </svg>
   </div>
 </nav>
-<app-modal *ngIf="showModal" [showModal]="showModal" [modalData]="modalData"></app-modal>
+<app-modal *ngIf="showModal" [showModal]="showModal" [modalData]="modalData" (closeRules)="closeModal()"></app-modal>

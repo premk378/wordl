@@ -16,6 +16,10 @@ export class NavbarComponent implements OnInit {
 
   showInfo(){
     this.showModal = true;
-    this.modalData = {type: 'info', title: 'Rules', text: 'Rules'};
+    this.modalData = {type: 'info', title: 'How to Play?', text: 'Rules'};
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

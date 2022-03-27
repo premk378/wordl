@@ -11,6 +11,7 @@ export class ModalComponent implements OnInit, OnChanges {
   @Input() modalData: any = {};
 
   @Output() emitter: EventEmitter<string> =  new EventEmitter<string>();
+  @Output() closeRules: EventEmitter<string> =  new EventEmitter<string>();
 
   constructor() { }
 
@@ -19,11 +20,14 @@ export class ModalComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.showModal) document.getElementById('toggler').click();
-    console.log(this.modalData);
   }
 
   reloadChallenge() {
     this.emitter.emit('reload');
+  }
+
+  closeModal() {
+    this.closeRules.emit('close');
   }
 
   
