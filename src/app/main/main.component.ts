@@ -26,6 +26,9 @@ export class MainComponent implements OnInit {
   attempts: number = 0;
   defaultColor: string = '#183153';
   highlightColor: string = '#80D5FA';
+  greenColor: string = '#2FAC03';
+  yellowColor: string = '#FFC300';
+  grayColor: string = '#999999';
   green: string[] = [];
   yellow: string[] = [];
   gray: string[] = [];
@@ -76,14 +79,14 @@ export class MainComponent implements OnInit {
         let arr = [...this.answerWord.toLowerCase()];
         for(let i=0; i<selected.length; i++) {
           if(arr[i] == selected[i].text.toLowerCase()) {
-            selected[i].color = '#2FAC03';
+            selected[i].color = this.greenColor;
             greens.push(selected[i].text);
           }
           else if(arr.indexOf(selected[i].text.toLowerCase()) != -1){
-            selected[i].color = '#FFC300';
+            selected[i].color = this.yellowColor;
             yellows.push(selected[i].text);
           } else {
-            selected[i].color = '#999999';
+            selected[i].color = this.grayColor;
             grays.push(selected[i].text);
           }
         }
@@ -96,13 +99,12 @@ export class MainComponent implements OnInit {
         this.highlightActiveRow(this.activeWordIndex+1);
         this.currentWord = '';
         if(this.green.length == this.wordLength) {
-          //this.toastr.success(`Solved in ${this.attempts} attempts`);
           this.showModal = true;
           this.modalData = {type: "success", title: "Solved!!", text: `Solved in ${this.attempts} attempts`};
         }
-        if(this.maxAttempts == this.attempts) {
+        else if(this.maxAttempts == this.attempts) {
           this.showModal = true;
-          this.modalData = {type: "failed", title: "Try Again", text: `The word was ${this.answerWord}`};
+          this.modalData = {type: "failed", title: "Try Again", text: `The word was "${this.answerWord.toUpperCase()}"`};
         }
       }
     }
@@ -135,7 +137,7 @@ export class MainComponent implements OnInit {
     this.activeWordIndex = 0;
     this.activeLetterIndex = 0;
     this.answerWord = this.wordService.getRandomWord(this.wordLength);
-    console.log(this.answerWord);
+    //console.log(this.answerWord);
   }
 
   highlightActiveRow(row: number) {

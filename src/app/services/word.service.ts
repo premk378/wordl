@@ -10,12 +10,18 @@ export class WordService {
   four_letter_words: string[] = [];
   five_letter_words: string[] = [];
   six_letter_words: string[] = [];
+  isogram_four_letter_words: string[] = [];
+  isogram_five_letter_words: string[] = [];
+  isogram_six_letter_words: string[] = [];
 
   constructor() { 
     let isogramList = wordList.filter(word => this.isIsogram(word));
-    this.four_letter_words = isogramList.filter(word => word.length == 4);
-    this.five_letter_words = isogramList.filter(word => word.length == 5);
-    this.six_letter_words = isogramList.filter(word => word.length == 6);
+    this.isogram_four_letter_words = isogramList.filter(word => word.length == 4);
+    this.isogram_five_letter_words = isogramList.filter(word => word.length == 5);
+    this.isogram_six_letter_words = isogramList.filter(word => word.length == 6);
+    this.four_letter_words = wordList.filter(word => word.length == 4);
+    this.five_letter_words = wordList.filter(word => word.length == 5);
+    this.six_letter_words = wordList.filter(word => word.length == 6);
   }
 
   isValidWord(word: string, length: number): boolean {
@@ -27,9 +33,9 @@ export class WordService {
 
   getRandomWord(length: number): string {
     let wordArr = [];
-    if(length == 4) wordArr = this.four_letter_words;
-    else if(length == 5) wordArr = this.five_letter_words;
-    else if(length == 6) wordArr = this.six_letter_words;
+    if(length == 4) wordArr = this.isogram_four_letter_words;
+    else if(length == 5) wordArr = this.isogram_five_letter_words;
+    else if(length == 6) wordArr = this.isogram_six_letter_words;
     else wordArr = wordList;
     let index = Math.floor(Math.random() * wordArr.length);
     return wordArr[index];
