@@ -31,6 +31,7 @@ export class MainComponent implements OnInit {
   gray: string[] = [];
   showModal: boolean = false;
   modalData: any = {};
+  resetKeyboard: boolean;
 
   alphabets = ['Q','W','E','R','T','Y','U','I','O','P',
               'A','S','D','F','G','H','J','K','L',
@@ -61,7 +62,7 @@ export class MainComponent implements OnInit {
     if(this.activeLetterIndex == this.wordLength) {
       let valid = this.wordService.isValidWord(this.currentWord.toLowerCase(), this.currentWord.length);
       if(!valid) {
-        //this.toastr.error('Invalid word');
+        this.toastr.error('Invalid Word');
         this[`word${this.activeWordIndex+1}`].forEach(letter => {
           letter.active = false;
         });
@@ -86,6 +87,7 @@ export class MainComponent implements OnInit {
             grays.push(selected[i].text);
           }
         }
+        this.resetKeyboard = false;
         this.green = greens;
         this.yellow = yellows;
         this.gray = grays;
@@ -96,11 +98,11 @@ export class MainComponent implements OnInit {
         if(this.green.length == this.wordLength) {
           this.toastr.success(`Solved in ${this.attempts} attempts`);
           this.showModal = true;
-          this.modalData = {title: "Success", text: `Solved in ${this.attempts} attempts`};
+          this.modalData = {type: "success", title: "Solved!!", text: `Solved in ${this.attempts} attempts`};
         }
         if(this.maxAttempts == this.attempts) {
           this.showModal = true;
-          this.modalData = {title: "Try Again", text: `The word was ${this.answerWord}`};
+          this.modalData = {type: "failed", title: "Try Again", text: `The word was ${this.answerWord}`};
         }
       }
     }
@@ -110,12 +112,12 @@ export class MainComponent implements OnInit {
     if(this.attempts <= this.maxAttempts)
       this[`word${index+1}`].forEach(letter => {
         letter.active = true;
-        letter.text = '';
-        this.activeLetterIndex = 0;
       });
   }
 
   initChallenge() {
+    this.resetKeyboard = true;
+    this.attempts = 0;
     this.word1 = [];
     this.word2 = [];
     this.word3 = [];

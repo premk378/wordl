@@ -42,7 +42,7 @@
     </div>
   </div>
   <div style="margin: 50px auto;">
-    <app-keyboard [green]="green" [yellow]="yellow" [gray]="gray" (emitter)="handleKeyboardAction($event)"></app-keyboard>
+    <app-keyboard [green]="green" [yellow]="yellow" [gray]="gray" [resetKeyboard]="resetKeyboard" (emitter)="handleKeyboardAction($event)"></app-keyboard>
   </div>
 </div>
-<app-modal (emitter)="initChallenge()" [showModal]="showModal" [modalData]="modalData"></app-modal>
+<app-modal *ngIf="showModal" (emitter)="initChallenge()" [showModal]="showModal" [modalData]="modalData"></app-modal>

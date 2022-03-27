@@ -12,9 +12,10 @@ export class WordService {
   six_letter_words: string[] = [];
 
   constructor() { 
-    this.four_letter_words = wordList.filter(word => word.length == 4);
-    this.five_letter_words = wordList.filter(word => word.length == 5);
-    this.six_letter_words = wordList.filter(word => word.length == 6);
+    let isogramList = wordList.filter(word => this.isIsogram(word));
+    this.four_letter_words = isogramList.filter(word => word.length == 4);
+    this.five_letter_words = isogramList.filter(word => word.length == 5);
+    this.six_letter_words = isogramList.filter(word => word.length == 6);
   }
 
   isValidWord(word: string, length: number): boolean {
@@ -32,5 +33,9 @@ export class WordService {
     else wordArr = wordList;
     let index = Math.floor(Math.random() * wordArr.length);
     return wordArr[index];
+  }
+
+  isIsogram (str) {
+    return !/(.).*\1/.test(str);
   }
 }

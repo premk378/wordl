@@ -11,12 +11,13 @@ export class KeyboardComponent implements OnInit,OnChanges {
   @Input() green: string [];
   @Input() yellow: string [];
   @Input() gray: string [];
-
+  @Input() resetKeyboard: boolean;
   @Output() emitter = new EventEmitter<string>();
 
   row1: Letter[] = [];
   row2: Letter[] = [];
   row3: Letter[] = [];
+  
   keyColor: string = '#581845';
   greenColor: string = '#2FAC03';
   yellowColor: string = '#FFC300';
@@ -54,6 +55,10 @@ export class KeyboardComponent implements OnInit,OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if(this.resetKeyboard) {
+      this.initKeyboard();
+      return;
+    }
     this.green.forEach(green => {
       let index = this.alphabetMap[green];
       if(index < 10) {
@@ -98,6 +103,10 @@ export class KeyboardComponent implements OnInit,OnChanges {
   }
 
   initKeyboard() {
+    this.row1 = [];
+    this.row2 = [];
+    this.row3 = [];
+
     for(let i=0; i<this.alphabets.length; i++) {
       if(i<10) {
         this.row1.push(new Letter(this.alphabets[i],false,this.keyColor));

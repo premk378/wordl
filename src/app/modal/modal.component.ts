@@ -19,6 +19,7 @@ export class ModalComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.showModal) document.getElementById('toggler').click();
+    console.log(this.modalData);
   }
 
   reloadChallenge() {

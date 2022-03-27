@@ -23,7 +23,7 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom',
+      positionClass: 'toast-bottom-center',
     })
   ],
   providers: [],
