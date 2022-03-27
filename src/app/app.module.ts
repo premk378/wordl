@@ -9,6 +9,7 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ModalComponent } from './modal/modal.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ModalComponent } from './modal/modal.component';
     MainComponent,
     KeyboardComponent,
     NavbarComponent,
-    ModalComponent
+    ModalComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

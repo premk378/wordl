@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Letter } from '../letter-model';
 import { WordService } from '../services/word.service';
@@ -41,10 +42,14 @@ export class MainComponent implements OnInit {
               'Z','X','C','V','B','N','M'];
   
   constructor(private wordService: WordService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.initChallenge();
+    this.route.params.subscribe((params: Params) => {
+      this.wordLength = params['length'];
+      if(this.wordLength) this.initChallenge();
+    });
   }
 
   handleKeyboardAction(letter) {

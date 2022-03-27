@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
   <div class="d-flex justify-content-center">
     <div class="p-1" *ngFor="let letter of word1">
         <div class="letter" [class.invalid-word]="letter.active" [ngStyle]="{'background-color': letter.color}">
@@ -44,5 +44,4 @@
   <div style="margin: 50px auto;">
     <app-keyboard [green]="green" [yellow]="yellow" [gray]="gray" [resetKeyboard]="resetKeyboard" (emitter)="handleKeyboardAction($event)"></app-keyboard>
   </div>
-</div>
 <app-modal *ngIf="showModal" (emitter)="initChallenge()" [showModal]="showModal" [modalData]="modalData"></app-modal>
