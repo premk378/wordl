@@ -7,19 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  showModal: boolean;
-  modalData: any = {};
   constructor() { }
 
   ngOnInit() {
   }
 
-  showInfo(){
-    this.showModal = true;
-    this.modalData = {type: 'info', title: 'How to Play?', text: 'Rules'};
-  }
-
-  closeModal() {
-    this.showModal = false;
-  }
 }

@@ -1,10 +1,32 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #013985;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="color: #fff;">WORLDE</a>
-    <svg (click)="showInfo()" fill = "#ffffff" style="cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-info-circle" viewBox="0 0 16 16">
+    <svg data-bs-toggle="modal" data-bs-target="#showRules" fill = "#ffffff" style="cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-info-circle" viewBox="0 0 16 16">
       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
       <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
     </svg>
   </div>
 </nav>
-<app-modal *ngIf="showModal" [showModal]="showModal" [modalData]="modalData" (closeRules)="closeModal()"></app-modal>
+
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="showRules" tabindex="-1" aria-labelledby="showRulesLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="showRulesLabel">How to Play?</h5>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li> Guess the word in 6 tries.</li>
+          <li> Each guess must be a valid 5 letter word.</li>
+          <li> Word will be automatically submitted after 5 characters.</li>
+          <li> After each guess the color of the tiles will change to show how close your guess was to the word. </li>
+          <li> Green color of the tile means the letter and its position both are correct.</li>
+          <li> Yellow color of the tile means the letter is present in the word but at a different position.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
