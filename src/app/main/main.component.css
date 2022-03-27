@@ -1,0 +1,60 @@
+.word-grid {
+    margin: 0 auto;
+}
+
+.word {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+  
+.letter-holder {
+    flex-basis: 18%;
+    padding: 2px;
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0 0 0 0 rgb(34 36 38 / 15%) inset;
+    box-shadow: 0 0 0 0 rgb(34 36 38 / 15%) inset;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.container-fluid {
+    background-color: #eee;
+    box-shadow: 0px 8px #eee;
+    padding: 30px;
+}
+
+.invalid-word {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }

@@ -1,0 +1,44 @@
+.word {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+}
+  
+.row1-alphabets {
+    flex-basis: 9%;
+}
+
+.row2-alphabets {
+    flex-basis: 9%;
+}
+
+.row3-alphabets {
+    flex-basis: 9%;
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bolder;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0 0 0 0 rgb(34 36 38 / 15%) inset;
+    box-shadow: 0 0 0 0 rgb(34 36 38 / 15%) inset;
+    height: 40px;
+    width: 40px;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.letter:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    background-color: #581845;
+    color: white;
+}
