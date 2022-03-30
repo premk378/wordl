@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 declare var require:any;
-// var wordList = require('word-list-json');
+var fullList = require('word-list-json');
 var wordList = require('../words/words.json');
 
 @Injectable({
@@ -20,9 +20,9 @@ export class WordService {
     this.isogram_four_letter_words = isogramList.filter(word => word.length == 4);
     this.isogram_five_letter_words = isogramList.filter(word => word.length == 5);
     this.isogram_six_letter_words = isogramList.filter(word => word.length == 6);
-    this.four_letter_words = wordList.filter(word => word.length == 4);
-    this.five_letter_words = wordList.filter(word => word.length == 5);
-    this.six_letter_words = wordList.filter(word => word.length == 6);
+    this.four_letter_words = fullList.filter(word => word.length == 4);
+    this.five_letter_words = fullList.filter(word => word.length == 5);
+    this.six_letter_words = fullList.filter(word => word.length == 6);
   }
 
   isValidWord(word: string, length: number): boolean {
