@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 declare var require:any;
-var wordList = require('word-list-json');
+// var wordList = require('word-list-json');
+var wordList = require('../words/words.json');
 
 @Injectable({
   providedIn: 'root'
